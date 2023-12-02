@@ -107,6 +107,15 @@ $~n log n$
 #h(1cm)```c if (i>1) and (A[i]>A[parent(i)])```\
 #h(2cm)```c A[i]<=>A[parent(i)]```\
 #h(2cm)```c MaxHeapifyUp(A,parent(i))```\
+\
+```c Insert(A,k)```\
+#h(1cm)```c A.size = A.size+1```\
+#h(1cm)```c A[A.size] = k```\
+#h(1cm)```c MaxHeapifyUp(A,A.size)```\
+\
+```c IncreaseKey(A,i,s)```\
+#h(1cm)```c A[i] = A[i]+s```\
+#h(1cm)```c MaxHeapifyUp(A,i)```\
 
 === Costo
 MaxHeapify = $O(log n) $\
@@ -114,3 +123,36 @@ BuildMaxHeap = $O(n log n)$\
 HeapSort = $O(n log n)$\
 Max = $O(1)$\
 ExtractMax = $O(log n)$\
+MaxHeapifyUp = $O(log n)$\
+Insert = $O(log n)$\
+IncreaseKey = $O(log n)$\
+
+== QuickSort
+=== Codice
+
+```c QuickSort(A,p,r)```\
+#h(1cm)```c if p<r```\
+#h(2cm)```c q = Partition(A,p,r)```\
+#h(2cm)```c QuickSort(A,p,q-1)```\
+#h(2cm)```c QuickSort(A,q+1,r)```\
+\
+```c Partition(A,p,r)```\
+#h(1cm)```c x = A[r]```\
+#h(1cm)```c i = p-1```\
+#h(1cm)```c for j=p to r-1```\
+#h(2cm)```c if A[j]<=x```\
+#h(3cm)```c i = i+1```\
+#h(3cm)```c A[i]<=>A[j]```\
+#h(2cm)```c else```\
+#h(3cm)```c A[i+1]<=>A[r]```\
+#h(1cm)```c return i+1```\
+\
+
+```c RandomizedPartition(A,p,r)```\
+#h(1cm)```c i = Random(p,r)```\
+#h(1cm)```c A[r]<=>A[i]```\
+#h(1cm)```c return Partition(A,p,r)```\
+
+=== Costo
+$O(n log n)$
+
